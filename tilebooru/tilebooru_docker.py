@@ -20,7 +20,7 @@ from krita import *
 import copy
 import math
 from PyQt5 import QtWidgets, QtCore, uic
-from .photobash_images_modulo import (
+from .tilebooru_modulo import (
     Photobash_Display,
     Photobash_Button,
 )

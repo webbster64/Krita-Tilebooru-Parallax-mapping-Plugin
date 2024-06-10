@@ -16,6 +16,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from krita import *
-from .photobash_images_docker import *
+from .tilebooru_docker import *
 
 Krita.instance().addDockWidgetFactory(DockWidgetFactory("PhotobashDocker", DockWidgetFactoryBase.DockRight, PhotobashDocker))

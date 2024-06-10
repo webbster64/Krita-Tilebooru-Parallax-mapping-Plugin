@@ -1,8 +1,5 @@
 # Krita Photobash Plugin
 
-An advanced Krita Plugin, laser-focused on improving productivity for photo-bashing and references!
-Want to see this in action? Check out the [video](https://youtu.be/QX9jwhfpB_8)! Tested in Krita 4.4.8, 5.0 and 5.1. 
-
 ## Installation
 
 To download this plugin, download a zip from the [releases](https://github.com/veryprofessionaldodo/Krita-Photobash-Images-Plugin/releases). After extracting, place the it's contents in the correct folder:
@@ -10,7 +7,7 @@ To download this plugin, download a zip from the [releases](https://github.com/v
 - **Linux**: Place the folder inside "~/.local/share/krita/pykrita". 
 - **Windows**: Place the folder inside "C:\Users\username\AppData\Roaming\krita\pykrita".
 
-All that's left is to activate the plugin inside Krita! To do this, start Krita, and on the top bar go to Settings > Configure Krita > Python Plugin Manager. On the list, if the plugin was placed correctly, there should be a new entry named `Photobash Images`. Check it, click `OK`, and restart Krita. There is now a new docker named "Photobash Images"! Place wherever you prefer. 
+All that's left is to activate the plugin inside Krita! To do this, start Krita, and on the top bar go to Settings > Configure Krita > Python Plugin Manager. On the list, if the plugin was placed correctly, there should be a new entry named `tilebooru`. Check it, click `OK`, and restart Krita. There is now a new docker named "tilebooru"! Place wherever you prefer. 
 
 The plugin is now correctly installed! Click on "Set References Folder", and set the folder that contains all your references. After that, you're good to go! The plugin will recursively look inside your folder, so all the photos, even those that are stored inside different folders will show up! To know more about how to use the plugin to it's full potential, read the next chapter.
 
@@ -40,5 +37,3 @@ You can also have some extra features by right-clicking on an image. This will o
 - **Pin to Beginning / Unpin**: You can add "favourites" to an image, by pinning them to the beginning. This is useful if you have a select few images that you like to re-use, but are on different pages. This way you can have an easy way to access them, which will persist across restarts. It will only forget the favourite images if you decide to change the references folder. You can also unpin the images to send them to their original placement. A favourite will have a triangle in the top-left corner.
 - **Open as New Document**: Opens the image as a new document, but keep in mind that this is the original image. If you save it, it will override the one you have on your references folder. 
 - **Place as Reference**: You can add an image as reference, and place it wherever you want! If you want to remove a reference, you need to press the "Pushpin Icon" on your toolbox, and remove it using that tool.
-
-#### Hope you enjoy this plugin, and feel free to post your artworks over on [Krita Artists](https://krita-artists.org/)!
