@@ -1,4 +1,4 @@
-# Krita Photobash Plugin
+# Krita Tilebooru Plugin
 
 ## Installation
 
