@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Service
 ServiceTypes=Krita/PythonPlugin
-X-KDE-Library=photobash_images
+X-KDE-Library=tilebooru
 X-Python-2-Compatible=false
-X-Krita-Manual=photobash_images_manual.html
-Name=Photobash Images
+X-Krita-Manual=tilebooru_manual.html
+Name=Tilebooru Images
 Comment=An advanced Krita Plugin, laser-focused on improving productivity for photo-bashing and references!

@@ -78,9 +78,11 @@ def customPaintEvent(instance, event):
     painter.restore()
 
 def customSetImage(instance, image):
-    instance.qimage = QImage() if image is None else image
+    # Convert bytes to QImage
+    instance.qimage = QImage()
+    instance.qimage.loadFromData(image)
+    
     instance.pixmap = QPixmap(50, 50).fromImage(instance.qimage)
-
     instance.update()
 
 def customMouseMoveEvent(self, event):
@@ -134,14 +136,14 @@ def customMouseMoveEvent(self, event):
     drag.setHotSpot(QPoint(self.qimage.width() / 2, self.qimage.height() / 2))
     drag.exec_(Qt.CopyAction)
 
-class Photobash_Display(QWidget):
+class Tilebooru_Display(QWidget):
     SIGNAL_HOVER = QtCore.pyqtSignal(str)
     SIGNAL_CLOSE = QtCore.pyqtSignal(int)
     fitCanvasChecked = False
     scale = 100
 
     def __init__(self, parent):
-        super(Photobash_Display, self).__init__(parent)
+        super(Tilebooru_Display, self).__init__(parent)
         customSetImage(self, None)
 
     def sizeHint(self):
@@ -170,10 +172,13 @@ class Photobash_Display(QWidget):
         self.path = path
         customSetImage(self, image)
 
+    def clearImage(self):
+        customSetImage(self, None)
+
     def paintEvent(self, event):
         customPaintEvent(self, event)
 
-class Photobash_Button(QWidget):
+class Tilebooru_Button(QWidget):
     SIGNAL_HOVER = QtCore.pyqtSignal(str)
     SIGNAL_LMB = QtCore.pyqtSignal(int)
     SIGNAL_WUP = QtCore.pyqtSignal(int)
@@ -190,7 +195,7 @@ class Photobash_Button(QWidget):
     isFavourite = False
 
     def __init__(self, parent):
-        super(Photobash_Button, self).__init__(parent)
+        super(Tilebooru_Button, self).__init__(parent)
         # Variables
         self.number = -1
         # QImage
@@ -270,6 +275,9 @@ class Photobash_Button(QWidget):
     def setImage(self, path, image):
         self.path = path
         customSetImage(self, image)
+
+    def clearImage(self):
+        customSetImage(self, None)
 
     def paintEvent(self, event):
         customPaintEvent(self, event)

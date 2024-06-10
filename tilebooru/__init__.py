@@ -1,4 +1,4 @@
-# Photobash Images is a Krita plugin to get CC0 images based on a search,
+# Tilebooru Images is a Krita plugin to get CC0 images based on a search,
 # straight from the Krita Interface. Useful for textures and concept art!
 # Copyright (C) 2020  Pedro Reis.
 #
@@ -18,4 +18,4 @@
 from krita import *
 from .tilebooru_docker import *
 
-Krita.instance().addDockWidgetFactory(DockWidgetFactory("PhotobashDocker", DockWidgetFactoryBase.DockRight, PhotobashDocker))
+Krita.instance().addDockWidgetFactory(DockWidgetFactory("TilebooruDocker", DockWidgetFactoryBase.DockRight, TilebooruDocker))

@@ -21,10 +21,76 @@ import copy
 import math
 from PyQt5 import QtWidgets, QtCore, uic
 from .tilebooru_modulo import (
-    Photobash_Display,
-    Photobash_Button,
+    Tilebooru_Display,
+    Tilebooru_Button,
 )
 import os.path
+import sys
+
+# Add the 'libs' folder to the Python path
+plugin_dir = os.path.dirname(os.path.realpath(__file__))
+libs_dir = os.path.join(plugin_dir, 'libs')
+sys.path.append(libs_dir)
+
+import requests
+
+self.useHostedImagesSetting = "useHostedImages"
+self.useHostedImages = bool(Application.readSetting(self.applicationName, self.useHostedImagesSetting, "False"))
+
+
+def toggleHostedImages(self, state):
+    if state == Qt.Checked:
+        self.useHostedImages = True
+        Application.writeSetting(self.applicationName, self.useHostedImagesSetting, "true")
+    else:
+        self.useHostedImages = False
+        Application.writeSetting(self.applicationName, self.useHostedImagesSetting, "false")
+    self.getImagesFromDirectory()
+
+def getImagesFromDirectory(self):
+    newImages = []
+    self.currPage = 0
+
+    if self.useHostedImages:
+        # Make API request to Danbooru instance
+        # and populate newImages with the fetched image paths
+        pass
+    else:
+        if self.directoryPath == "":
+            self.foundImages = []
+            self.favouriteImages = []
+            self.updateImages()
+            return
+
+        it = QDirIterator(self.directoryPath, QDirIterator.Subdirectories)
+
+        while(it.hasNext()):
+            if (".webp" in it.filePath() or ".png" in it.filePath() or ".jpg" in it.filePath() or ".jpeg" in it.filePath()) and \
+                (not ".webp~" in it.filePath() and not ".png~" in it.filePath() and not ".jpg~" in it.filePath() and not ".jpeg~" in it.filePath()):
+                newImages.append(it.filePath())
+
+            it.next()
+
+    self.foundImages = copy.deepcopy(newImages)
+    self.allImages = copy.deepcopy(newImages)
+    self.reorganizeImages()
+    self.updateImages()
+
+def fetch_images_from_danbooru(self, search_query):
+    url = "http://192.168.20.91:3000/posts.json"
+    params = {
+        "tags": search_query,
+        "limit": 100,
+    }
+    response = requests.get(url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        image_urls = [post["file_url"] for post in data]
+        return image_urls
+    else:
+        print(f"Error fetching images from Danbooru: {response.status_code}")
+        return []
+
 
 class PhotobashDocker(DockWidget):
     def __init__(self):
@@ -44,6 +110,7 @@ class PhotobashDocker(DockWidget):
         self.referencesSetting = "referencesDirectory"
         self.fitCanvasSetting = "fitToCanvas"
         self.foundFavouritesSetting = "currentFavourites"
+        self.useHostedImagesSetting = "useHostedImages"  # Add this line here
 
         self.currImageScale = 100
         self.fitCanvasChecked = bool(Application.readSetting(self.applicationName, self.fitCanvasSetting, "True"))
