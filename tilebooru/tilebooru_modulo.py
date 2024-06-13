@@ -1,4 +1,4 @@
-# Photobash Images is a Krita plugin to get CC0 images based on a search,
+# Tilebooru Images is a Krita plugin to get CC0 images based on a search,
 # straight from the Krita Interface. Useful for textures and concept art!
 # Copyright (C) 2020  Pedro Reis.
 #
@@ -78,12 +78,11 @@ def customPaintEvent(instance, event):
     painter.restore()
 
 def customSetImage(instance, image):
-    # Convert bytes to QImage
-    instance.qimage = QImage()
-    instance.qimage.loadFromData(image)
-    
+    instance.qimage = QImage() if image is None else image
     instance.pixmap = QPixmap(50, 50).fromImage(instance.qimage)
+
     instance.update()
+
 
 def customMouseMoveEvent(self, event):
     if event.modifiers() != QtCore.Qt.ShiftModifier and event.modifiers() != QtCore.Qt.AltModifier:
@@ -189,6 +188,11 @@ class Tilebooru_Button(QWidget):
     SIGNAL_OPEN_NEW = QtCore.pyqtSignal(str)
     SIGNAL_REFERENCE = QtCore.pyqtSignal(str)
     SIGNAL_DRAG = QtCore.pyqtSignal(int)
+    SIGNAL_ADD_WITH_TRANS_LAYER = QtCore.pyqtSignal(str)
+    SIGNAL_ADD_WITH_ERASE_GROUP = QtCore.pyqtSignal(str)
+    SIGNAL_MMD = QtCore.pyqtSignal(int)
+    SIGNAL_CTRL_LEFT = QtCore.pyqtSignal(int)
+
     PREVIOUS_DRAG_X = None
     fitCanvasChecked = False
     scale = 100
@@ -254,7 +258,8 @@ class Tilebooru_Button(QWidget):
         cmenuFavourite = cmenu.addAction(favouriteString)
         cmenuOpenNew = cmenu.addAction("Open as New Document")
         cmenuReference = cmenu.addAction("Place as Reference")
-
+        cmenuTransparency = cmenu.addAction("Add with Transparency")
+        cmenuEraseGroup = cmenu.addAction("Group with Erase Layer")
         background = qApp.palette().color(QPalette.Window).name().split("#")[1]
         cmenuStyleSheet = f"""QMenu {{ background-color: #AA{background}; border: 1px solid #{background}; }}"""
         cmenu.setStyleSheet(cmenuStyleSheet)
@@ -271,6 +276,10 @@ class Tilebooru_Button(QWidget):
             self.SIGNAL_OPEN_NEW.emit(self.path)
         if action == cmenuReference:
             self.SIGNAL_REFERENCE.emit(self.path)
+        if action == cmenuTransparency:
+            self.SIGNAL_ADD_WITH_TRANS_LAYER.emit(self.path)
+        if action == cmenuEraseGroup:
+            self.SIGNAL_ADD_WITH_ERASE_GROUP.emit(self.path)
 
     def setImage(self, path, image):
         self.path = path
