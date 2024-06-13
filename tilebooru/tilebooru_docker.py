@@ -180,11 +180,11 @@ class TilebooruDocker(DockWidget):
     def initialize(self):
         # initialize based on what was setup
         if self.directoryPath:
-            self.layout.changePathButton.setText("Change References Folder")
+            self.layout.changePathButton.setText("Change Tiles Folder")
             self.getImagesFromDirectory()
         # initial organization of images with favourites
         self.reorganizeImages()
-        self.layout.scaleSliderLabel.setText("Image Scale : 100%")
+        self.layout.scaleSliderLabel.setText("Tile Scale : 100%")
 
         self.updateImages()
         self.getImagesFromDirectory()
@@ -204,7 +204,7 @@ class TilebooruDocker(DockWidget):
 
     def textFilterChanged(self):
         if self.useHostedImages:
-            # Skip filtering if "use hosted images" option is checked
+            # Skip filtering if "use Tilebooru Tiles" option is checked
             return
 
         search_text = self.layout.filterTextEdit.text().lower()
@@ -274,7 +274,7 @@ class TilebooruDocker(DockWidget):
 
     def updateScale(self, value):
         self.currImageScale = value
-        self.layout.scaleSliderLabel.setText(f"Image Scale : {self.currImageScale}%")
+        self.layout.scaleSliderLabel.setText(f"Tile Scale : {self.currImageScale}%")
 
         # update layout buttons, needed when dragging
         self.imageWidget.setImageScale(self.currImageScale)
@@ -573,9 +573,9 @@ class TilebooruDocker(DockWidget):
         Application.writeSetting(self.applicationName, self.foundFavouritesSetting, "")
 
         if self.directoryPath == "":
-            self.layout.changePathButton.setText("Set References Folder")
+            self.layout.changePathButton.setText("Set Tiles Folder")
         else:
-            self.layout.changePathButton.setText("Change References Folder")
+            self.layout.changePathButton.setText("Change Tiles Folder")
 
         self.getImagesFromDirectory()
 
