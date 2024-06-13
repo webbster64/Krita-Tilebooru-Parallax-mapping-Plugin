@@ -22,7 +22,7 @@ If the Tiles in the folders are of large size, there may be some slowdown when s
 
 To add an Tiles to the Map, all you'll have to do is click on the Tile. That's it!, After adding, To reduce needing to always transform to the correct size, there are two elements to assist you:
 
-To use the Tiles hosted with tags for filtering tick the `Use Tilebooru Tiles` check box, tipe in the search bar the tags you want to use (Keep in mind this search with "and' and not "or", so if you search for `Blue rock` on will show all the blue rocks, not blue stuff and rocks), and click on the "Search" button. That's it! The plugin will now list the tiles with that tag, to add the the tile to the map click on it and move and scale as needed.
+To use the Tiles hosted with tags for filtering tick the `Use Tilebooru Tiles` check box, tipe in the search bar the tags you want to use (Keep in mind this search with "and' and not "or", so if you search for `Blue rock` it will only show tiles with the tags `blue` and `rocks`, not tiles `blue` or `rocks` tags), and click on the "Search" button. That's it! The plugin will now list the tiles with that tag, to add the the tile to the map click on it and move and scale as needed.
 
 - The "Tile Scale" slider controls how large the Tile will be when it's placed. If the scale is 50%, the Tile scale will be respect the original resolutions of the Tile. If it's 100%, it will add the image in full resolution, if it's 50% it will add the image at half the original resolution. 
 
