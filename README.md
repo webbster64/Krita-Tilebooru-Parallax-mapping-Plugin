@@ -32,9 +32,13 @@ Dragging the image presents the same behaviour as clicking, with the only differ
 If you want to filter the Tiles, you can add words to the text prompt on top of the widget. This filter will work on the full path of the image, so if you have images with random names, but are inside a folder called "rocks", if you input "rocks", those images will still appear. There's also an extra feature, in which mulitple word search adds to the selection. For example, if you input "rocks marble", the images that contain either "rocks" or "marble" will appear!
 
 I found that naming your tiles like this 
+
 `size quantity name orentation type`
+
 `medium bundle scroll vertical prop.png`
+
 `medium single scroll vertical prop.png`
+
 works the best for filtering 
 
 ## Context Menu
