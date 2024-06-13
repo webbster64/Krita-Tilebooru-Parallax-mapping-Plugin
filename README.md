@@ -13,28 +13,29 @@ The plugin is now correctly installed! Click on "Set Tiles Folder", and set the 
 
 ## Using the Plugin (really well)
 
-After setting the Tiles folder, you now have a list of 9 images in the docker. If your folder has more than 9 images in total, there are now multiple pages. There are different ways to scroll the list, such as:
+After setting the Tiles folder, you now have a list of 9 images in the docker. If your folder has more than 9 Tiles in total, there are now multiple pages. There are different ways to scroll the list, such as:
 - Clicking on the "next" and "previous" buttons on the bottom row of the docker;
 - Scrolling the slider next to the pages indicator;
 - Mouse Wheel Up and Down;
-- Alt + Drag Left or Right, in case you're using a stylus. 
 
-If the images in the folders are of large size, there may be some slowdown when scrolling quickly. However, the plugin is caching the previews, and stores up to 90 images, so you can scroll through them back more easily later. 
+If the Tiles in the folders are of large size, there may be some slowdown when scrolling quickly. However, the plugin is caching the previews, and stores up to 90 Tiles, so you can scroll through them back more easily later. 
 
-To add an image to the document, all you'll have to do is click on the image. That's it!, After adding, you'll notice that the image might be scaled. To reduce needing to always transform to the correct size, there are two elements to assist you:
+To add an Tiles to the Map, all you'll have to do is click on the Tile. That's it!, After adding, To reduce needing to always transform to the correct size, there are two elements to assist you:
 
-To use the Tiles hosted with tags for filter tick the Use Tilebooru Tiles, tipe in the search bar the tags you want to use, and click on the "Search" button. That's it! The plugin will now list the tiles with that tag, to add the the tile to the map click on it and move and scale as needed.
+To use the Tiles hosted with tags for filtering tick the `Use Tilebooru Tiles` check box, tipe in the search bar the tags you want to use (Keep in mind this search with "and' and not "or", so if you search for `Blue rock` on will show all the blue rocks, not blue stuff and rocks), and click on the "Search" button. That's it! The plugin will now list the tiles with that tag, to add the the tile to the map click on it and move and scale as needed.
 
 - The "Tile Scale" slider controls how large the Tile will be when it's placed. If the scale is 50%, the Tile scale will be respect the original resolutions of the Tile. If it's 100%, it will add the image in full resolution, if it's 50% it will add the image at half the original resolution. 
-
-Dragging the image presents the same behaviour as clicking, with the only difference being that the image will be added in the position you specify! It will always preserve aspect ratio, so there's no need to worry with distortion.
 
 If you want to filter the Tiles, you can add words to the text prompt on top of the widget. This filter will work on the full path of the image, so if you have images with random names, but are inside a folder called "rocks", if you input "rocks", those images will still appear. There's also an extra feature, in which mulitple word search adds to the selection. For example, if you input "rocks marble", the images that contain either "rocks" or "marble" will appear!
 
 I found that naming your tiles like this 
+
 `size quantity name orentation type`
+
 `medium bundle scroll vertical prop.png`
+
 `medium single scroll vertical prop.png`
+
 works the best for filtering 
 
 ## Context Menu
